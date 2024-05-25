@@ -12,9 +12,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import spacy
+import os
 
 # Load the trained models
-loaded_model_scrapping = joblib.load('C:/Users/lejone/Desktop/New folder/kha90.joblib')
+loaded_model_scrapping = joblib.load('kha90.joblib')
 loaded_model_detecting = joblib.load('lejone99.joblib')
 nlp = spacy.load('en_core_web_sm')
 
@@ -52,9 +53,9 @@ def scrape_comments_with_login(url, email, password, scroll_count=3, scroll_dela
 
     # Enter username and password
     username.clear()
-    username.send_keys('57256604')  # Replace with your actual Facebook number or email
+    username.send_keys(email)  # Read from input
     password.clear()
-    password.send_keys('reuben18@.')  # Replace with your actual Facebook password
+    password.send_keys(password)  # Read from input
     time.sleep(1)
 
     # Locate and click the login button
